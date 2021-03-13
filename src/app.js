@@ -4,6 +4,7 @@ const { Firestore } = require("@google-cloud/firestore");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(express.json());
 // Create a new client
 const db = new Firestore();
 
@@ -26,10 +27,10 @@ app.get("/:breed", async (req, res) => {
 
 app.post("/", async (req, res) => {
   const data = {
-    name: req.params.name,
-    origin: req.params.origin,
-    lifeExpectacy: req.params.lifeExpectacy,
-    type: req.params.type,
+    name: req.query.name,
+    origin: req.query.origin,
+    lifeExpectacy: req.query.lifeExpectacy,
+    type: req.query.type,
   };
 
   await db.collection("dogs").doc().set(data);
