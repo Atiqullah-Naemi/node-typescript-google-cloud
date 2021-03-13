@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  node-express:
+    ports:
+      - ${PORT}:${PORT}
+    image: express-database
+    build: ./
+    volumes:
+      - ./:./user/app
+    env_file:
+      - .env
