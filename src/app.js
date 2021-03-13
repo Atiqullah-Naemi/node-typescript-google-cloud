@@ -27,10 +27,10 @@ app.get("/:breed", async (req, res) => {
 
 app.post("/", async (req, res) => {
   const data = {
-    name: req.query.name,
-    origin: req.query.origin,
-    lifeExpectacy: req.query.lifeExpectacy,
-    type: req.query.type,
+    name: req.body.name,
+    origin: req.body.origin,
+    lifeExpectacy: req.body.lifeExpectacy,
+    type: req.body.type,
   };
 
   await db.collection("dogs").doc().set(data);
