@@ -1,8 +1,8 @@
-import express, { Request, Response } from "express";
+import express, { Application, Request, Response } from "express";
 import { Firestore } from "@google-cloud/firestore";
 
-const app = express();
-const PORT = 5000;
+const app: Application = express();
+const PORT = process.env.PORT || 8080;
 
 // Create a new client
 const db = new Firestore();

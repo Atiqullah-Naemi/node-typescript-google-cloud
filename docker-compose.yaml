@@ -7,6 +7,6 @@ services:
     image: express-database
     build: ./
     volumes:
-      - ./:./user/app
+      - ./:/user/app
     env_file:
       - .env
