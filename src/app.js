@@ -24,4 +24,17 @@ app.get("/:breed", async (req, res) => {
   }
 });
 
+app.post("/", async (req, res) => {
+  const data = {
+    name: req.params.name,
+    origin: req.params.origin,
+    lifeExpectacy: req.params.lifeExpectacy,
+    type: req.params.type,
+  };
+
+  await db.collection("dogs").docs().set(data);
+
+  res.status(200).send({ success: true, data: { dogs: data } });
+});
+
 app.listen(PORT, () => console.log(`app running on ${PORT}`));
