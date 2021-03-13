@@ -18,9 +18,9 @@ app.get("/:breed", async (req, res) => {
   const querySnapshot = await query.get();
 
   if (querySnapshot.size > 0) {
-    res.status(200).send({ data: querySnapshot.docs[0].data() });
+    res.status(200).send({ success: true, data: querySnapshot.docs[0].data() });
   } else {
-    res.status(200).send({ message: "Not Found" });
+    res.status(200).send({ success: false, message: "Not Found" });
   }
 });
 
