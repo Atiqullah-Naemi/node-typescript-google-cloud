@@ -1,17 +1,17 @@
-import express, { Application, Request, Response } from "express";
-import { Firestore } from "@google-cloud/firestore";
+const express = require("express");
+const { Firestore } = require("@google-cloud/firestore");
 
-const app: Application = express();
+const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Create a new client
 const db = new Firestore();
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
   res.status(200).send({ message: "working app" });
 });
 
-app.get("/:breed", async (req: Request, res: Response) => {
+app.get("/:breed", async (req, res) => {
   const breed = req.params.breed;
 
   const query = db.collection("dogs").where("name", "==", breed);
