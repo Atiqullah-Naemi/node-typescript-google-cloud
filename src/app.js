@@ -32,7 +32,7 @@ app.post("/", async (req, res) => {
     type: req.params.type,
   };
 
-  await db.collection("dogs").docs().set(data);
+  await db.collection("dogs").doc().set(data);
 
   res.status(200).send({ success: true, data: { dogs: data } });
 });
