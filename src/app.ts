@@ -8,7 +8,7 @@ const PORT = 5000;
 const db = new Firestore();
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({ message: "working" });
+  res.status(200).send({ message: "working app" });
 });
 
 app.get("/:breed", async (req: Request, res: Response) => {
