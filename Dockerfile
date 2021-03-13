@@ -8,6 +8,12 @@ RUN yarn
 
 COPY . .
 
+RUN yarn build
+
+COPY .env ./dist
+
+WORKDIR ./dist
+
 EXPOSE 3000
 
-CMD ["yarn","start"]
+CMD node src/app.js
