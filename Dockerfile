@@ -14,6 +14,6 @@ COPY .env ./dist
 
 WORKDIR ./dist
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD node src/app.js
