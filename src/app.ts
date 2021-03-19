@@ -27,7 +27,7 @@ const storage = new Storage();
 const bucket = storage.bucket(<string>process.env.CLOUD_BUCKET_ID);
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({ message: "working app" });
+  res.status(200).send({ message: "working app..." });
 });
 
 app.post(
